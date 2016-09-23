@@ -1,0 +1,22 @@
+diff --git a/examples/6lbr/package/etc/init.d/6lbr b/examples/6lbr/package/etc/init.d/6lbr
+index 7b73965..351b93a 100755
+--- a/examples/6lbr/package/etc/init.d/6lbr
++++ b/examples/6lbr/package/etc/init.d/6lbr
+@@ -20,11 +20,12 @@ PIDFILE=/var/run/$NAME.pid
+ 
+ umask 022
+ 
+-if [ -f /lib/lsb/init-functions ]; then
+-	. /lib/lsb/init-functions
+-elif [ -f /etc/init.d/functions ]; then
+-	. /etc/init.d/functions
+-else
++if true;then
++# if [ -f /lib/lsb/init-functions ]; then
++# 	. /lib/lsb/init-functions
++# elif [ -f /etc/init.d/functions ]; then
++# 	. /etc/init.d/functions
++# else
+ 	log_daemon_msg () {
+ 	    if [ -z "${1:-}" ]; then
+ 	        return 1

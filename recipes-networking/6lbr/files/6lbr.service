@@ -1,0 +1,12 @@
+[Unit]
+Description=6LoWPAN Border Router
+After=network.target
+
+[Service]
+ExecStart=/usr/lib/6lbr/6lbr /etc/6lbr/6lbr.conf
+Type=simple
+Restart=always
+RestartSec=0
+
+[Install]
+WantedBy=multi-user.target

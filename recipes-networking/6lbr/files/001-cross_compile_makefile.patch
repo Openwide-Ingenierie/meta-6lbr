@@ -1,0 +1,45 @@
+diff --git a/cpu/native/Makefile.native b/cpu/native/Makefile.native
+index e7e3bb6..ea5ef26 100644
+--- a/cpu/native/Makefile.native
++++ b/cpu/native/Makefile.native
+@@ -16,7 +16,7 @@ STRIP    ?= strip
+ ifdef WERROR
+ CFLAGSWERROR=-Werror
+ endif
+-CFLAGSNO = -Wall -g -I/usr/local/include $(CFLAGSWERROR)
++CFLAGSNO = -Wall -g $(CFLAGSWERROR)
+ CFLAGS  += $(CFLAGSNO)
+ 
+ ifeq ($(HOST_OS),Darwin)
+diff --git a/examples/6lbr/Makefile b/examples/6lbr/Makefile
+index 35ed0be..52aa598 100644
+--- a/examples/6lbr/Makefile
++++ b/examples/6lbr/Makefile
+@@ -19,7 +19,7 @@ APPDIRS = $(6LBR)/apps $(6LBR)/../6lbr-demo/apps
+ 
+ PROJECTDIRS += $(6LBR) $(6LBR)/6lbr $(6LBR)/../6lbr-demo/apps/udp-client $(6LBR)/../6lbr-demo/apps/coap/rest-types
+ 
+-CFLAGS += -DPROJECT_CONF_H=\"project-conf.h\"
++CFLAGS := -DPROJECT_CONF_H=\"project-conf.h\"
+ 
+ ifeq ($(TARGET),)
+ TARGET=native
+diff --git a/examples/6lbr/platform/native/Makefile.native b/examples/6lbr/platform/native/Makefile.native
+index d9c7ade..572818c 100644
+--- a/examples/6lbr/platform/native/Makefile.native
++++ b/examples/6lbr/platform/native/Makefile.native
+@@ -149,10 +149,10 @@ else
+ PLUGIN_LDFLAGS+=-shared
+ CFLAGS+=-fPIC
+ TARGET_LIBFILES+=-ldl
+-ifeq ($(6LBR_PLUGIN),)
+-LDFLAGS+=-Wl,--whole-archive
+-LDFLAGS_AFTER=-Wl,--no-whole-archive
+-endif
++# ifeq ($(6LBR_PLUGIN),)
++# LDFLAGS+=-Wl,--whole-archive
++# LDFLAGS_AFTER=-Wl,--no-whole-archive
++# endif
+ endif
+ 
+ ifndef RELSTR
