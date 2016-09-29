@@ -19,7 +19,7 @@ S = "${WORKDIR}/git"
 # PARALLEL_MAKE=""
 EXTRA_OEMAKE = "CC='${CC}' LD_OVERRIDE='${CC}'"
 RDEPENDS_${PN} = "bridge-utils"
-
+RRECOMMENDS_${PN} = "kernel-module-tun"
 
 INITSCRIPT_NAME = "6lbr"
 INITSCRIPT_PARAMS = "defaults"
