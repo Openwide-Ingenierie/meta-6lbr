@@ -11,7 +11,6 @@ SRC_URI = "gitsm://github.com/cetic/6lbr.git;protocol=git;branch=develop\
           file://001-6lbr_sysvinit.patch \
           file://001-cross_compile_makefile.patch \
           file://6lbr.conf \
-          file://nvm.dat \
           file://6lbr.service \
 "
 S = "${WORKDIR}/git"
@@ -47,7 +46,6 @@ do_install() {
        install -m 0644 ${WORKDIR}/6lbr.service ${D}${systemd_system_unitdir}
     fi
     install ${WORKDIR}/6lbr.conf ${D}/etc/6lbr/
-    install ${WORKDIR}/nvm.dat ${D}/etc/6lbr/
 }
 
 FILES_${PN} = "/usr/lib/6lbr/* \
